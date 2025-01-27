@@ -189,3 +189,66 @@ docker container ls -a
 docker images
 docker rmi -f my-nginx-server
 docker images
+
+/------------------------Program 7--------------------------/
+
+Open Browser
+Install java 17 version--windows x64 Installer(153.92)
+Install Jenkins windows of LTS
+select uper without password--check for java 17 version
+Go to Browser and type localhost:8080
+then copy paste password in administrative
+set user,user,admin,admin,user@user.com--Jenkins is ready
+Go to manage jenkins
+go to plugins
+install maven installer plugin
+go to manage jenkins
+go to tools
+to down ans maven3 and save
+click on new item --- write any name --- click on pipeline
+go down and paste the following script in the area
+
+pipeline {
+    agent any
+    tools {
+        maven 'Maven3' // The name matches the one you have configured in Jenkins
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/jabedhasan21/java-hello-world-with-maven.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'  // Running Maven commands using the installed Maven3 tool
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deployment steps go here.'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
+
+
+click on build now
+click and check in console output
+scroll down and show success output
