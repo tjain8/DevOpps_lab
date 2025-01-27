@@ -1,0 +1,191 @@
+/----------------Program 1--------------------------/
+
+git --version
+git config --global user.name username
+git config --global user.email emailname
+git config --global user.name
+git config --global user.email
+code .
+mkdir DEVpps
+ls
+cd DEVpps
+git init
+touch f1.py
+code f1.py
+git add f1.py
+git status
+git commit -m "file added"
+git status
+git log
+git branch branchname
+git checkout branchname
+touch f2.py
+code f2.py
+git add f2.py
+git status
+git commit -m "ff2 added"
+git checkout branchmain
+git status
+git merge branchname
+git branch
+git remote add origin https://
+git remote -v
+git push -u origin master
+git add .
+git commit -m "f1 added"
+git push
+
+
+
+/-------------------------------Program 2--------------------------------------/
+
+Open git 
+Open repo having files
+Create a new file(f3.py)
+commit changes
+Create a new branch(Apple) - propose changes
+compare and  pull request
+create pull request --  merge pull request -- confirm merge
+Open another account info part with your account
+click on fork and create a new fork(Rahhu--it should have atleast one file)
+add files -  rahu.xml -- commit changes
+click on contrubuter -- open pull request
+create pull request
+
+//Other account//
+confirm merge
+it showed a merged thing
+
+
+/------------------------------------Program 3-------------------------/
+
+Create a folder in desktop
+create a file (LAB_3) in that folder
+then add a new file add.py and a folder .github\workflows and ci.yaml
+then write the following codes
+
+add.py---------
+def add(a,b):
+    return a+b
+def test_add():
+    assert add(1,2)==3
+    assert add(2,2)==4
+
+ci.yaml-------------
+name: First GitHub Actions 
+on: [push] 
+jobs:
+  build: 
+    runs-on: ubuntu-latest 
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9] 
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setting up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Installing all the dependencies
+        run: |
+          python -m pip install --upgrade pip # Upgrade pip.
+          pip install pytest
+      - name: Running tests
+        run: |
+          python -m pytest addition.py
+
+
+Open git -- new repo -- lab_03
+Open git bash -- write following commands
+--git init
+--git add .
+--git commit -m "file added"
+--git remote add origin https://github////................
+--git push -u origin master
+
+
+Open git and check for files
+click on setting - actions - runners
+Open git bash --
+--mkdir actions-runner
+--cd actions-runner
+--curl -L -o copy (actions-runnee) (https:.........)
+--unzip actions-runner-win
+--ls
+-- ./config command
+--./run/cmt
+
+
+/-----------------------Program 4------------------------------/
+
+Create lab4 in devlab folder
+open directory
+
+write following commands
+
+docker --version
+docker ps
+docker images
+docker pull nginx
+docker images
+docker container ls
+docker run -d -p 8080:80 nginx
+docker ps
+docker stop container_id
+docker ps
+docker container ls
+docker container ls -a
+docker remove container_id
+docker container ls -a
+docker images
+docker rmi -f nginx
+doxker images
+docker pull busybox
+docker run busybox
+docker run busybox echo hellliooo
+docker container ls 
+docker container ls -a
+docker remove container_id
+docker images
+docker rmi -f busybox
+
+
+/-----------------------------Program 5-------------------------/
+
+
+Create devlab folder
+create html lab5 folder in devlab folder
+ 
+Open VS code and lab5 folder
+
+html---index.html code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My new program</title>
+</head>
+<body>
+    <p>Helllooo yeah</p>
+</body>
+</html>
+
+Dockerfile code
+FROM nginx:alpine
+COPY html /usr/share/nginx/html
+EXPOSE 80
+
+
+Commands-----------
+docker build -t my-nginx-server .
+docker images
+docker run -d -p 8080:80 my-nginx-server
+docker stop container_id
+docker container ls
+docker remove container_id
+docker container ls -a
+docker images
+docker rmi -f my-nginx-server
+docker images
